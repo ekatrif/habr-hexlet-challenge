@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+#app {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#app input {
+  padding: 8px 10px;
+}
+
+#app input:focus {
+  outline: none;
+  border-color: lightgreen;
+}
+
+.add-timer {
+  padding: 8px 10px;
+  background-color: lightgrey;
+  color: black;
+  border: 2px solid lightgreen;
+  transition: all 0.5s linear;
+}
+
+.add-timer:hover {
+  cursor: pointer;
+  background-color: lightgreen;
+  border: 2px solid grey;
+}
+
+.stop-timer {
+  padding: 6px 8px;
+  background-color: lightgrey;
+  color: black;
+  border: 2px solid lightslategray;
+  transition: all 0.5s linear;
+}
+
+.stop-timer:hover {
+  cursor: pointer;
+  background-color: lightslategray;
+  border: 2px solid grey;
+  color: white;
+}
+
+.delete-timer {
+  padding: 6px 8px;
+  background-color: lightgrey;
+  color: black;
+  border: 2px solid lightcoral;
+  transition: all 0.5s linear;
+}
+
+.delete-timer:hover {
+  cursor: pointer;
+  background-color: lightcoral;
+  border: 2px solid grey;
+}
+
+#app ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#app ul li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.countdown {
+  font-weight: 600;
+}
