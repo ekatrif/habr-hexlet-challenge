@@ -9,9 +9,10 @@
 <body>
     <div id="app">
         <div>
-        <input type="number" min="1" id="time-input" placeholder="Time in secs">
+        <input required type="number" min="1" id="time-input" placeholder="Time in secs">
         <button id="add-timer" class="add-timer"">Add a timer</button>
         </div>
+        <span class="error-wrapper"></span>
         <ul id="timers">
         </ul>
         </div>
