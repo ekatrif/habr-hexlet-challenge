@@ -10,31 +10,32 @@ const createButtons = () => '<button class="stop-timer">Stop</button><button cla
 const createItem = (value, timerId) => `<li id="timer-${timerId}"><span class="countdown">${value}</span>${createButtons()}</li>`;
 
 const onStop = (timer) => {
-  console.log({
-    timer
-  })
   clearInterval(timer);
 }
 
 const onDelete = (timer, item) => {
-  console.log({
-    timer, item
-  })
   clearInterval(timer);
   item.remove();
 }
 
 const addTimer = () => {
   timerId ++;
+  // Take value from input
   const value = timeInput.value;
-  list.innerHTML += createItem(value, timerId);
+  // Reset value in input
+  timeInput.value = '';
+
+  // Create list item with countdown and stop/delete buttons
+  const listItemHtml = createItem(value, timerId);
+  list.insertAdjacentHTML('beforeend', listItemHtml);
 
   const currentItem = list.querySelector(`#timer-${timerId}`);
 
   const valueWrapper = currentItem.querySelector('.countdown');
-  let currentValue = +valueWrapper.innerText;
 
-  const currentTimer= setInterval(() => {
+  // Start countdown timer
+  let currentValue = value;
+  const currentTimer = setInterval(() => {
     currentValue --;
     valueWrapper.innerText = currentValue;
     if (currentValue <= 0) {
@@ -42,12 +43,11 @@ const addTimer = () => {
     }
   }, 1000)
 
+  // Add event listeners for stop and delete buttons
   const stopBtn = currentItem.querySelector('.stop-timer');
   const deleteBtn = currentItem.querySelector('.delete-timer');
-  console.log(currentTimer)
 
   stopBtn.addEventListener('click', () => onStop(currentTimer));
-
   deleteBtn.addEventListener('click', () => onDelete(currentTimer, currentItem));
 }
 
