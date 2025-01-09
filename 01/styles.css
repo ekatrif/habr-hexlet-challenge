@@ -16,12 +16,12 @@ html, body {
     align-items: center;
 }
 
-#app input {
+#time-input {
   padding: 8px 10px;
   min-width: 250px;
 }
 
-#app input:focus {
+#time-input:focus {
   outline: none;
   border-color: lightgreen;
 }
@@ -74,14 +74,14 @@ html, body {
   border: 2px solid grey;
 }
 
-#app ul {
+#timers {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-#app ul li {
+#timers li {
   display: flex;
   align-items: baseline;
   gap: 10px;
