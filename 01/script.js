@@ -22,6 +22,14 @@ const addTimer = () => {
   timerId ++;
   // Take value from input
   const value = timeInput.value;
+
+  // Check if value is positive number
+  if (isNaN(value) || value <= 0) {
+    alert('Please enter a positive number');
+    timeInput.value = '';
+    return;
+  }
+
   // Reset value in input
   timeInput.value = '';
 
