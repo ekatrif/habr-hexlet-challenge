@@ -7,7 +7,6 @@ const error = document.querySelector('.error-wrapper');
 const onValidate = (e) => {
   const target = e.target;
   const value = target.value;
-  console.log(value)
 
   // Check if value is positive number
   if (isNaN(value) || value <= 0) {
@@ -47,6 +46,8 @@ const addTimer = () => {
 
   // Reset value in input
   timeInput.value = '';
+  // Disable button
+  addBtn.disabled = true;
 
   // Create list item with countdown and stop/delete buttons
   const listItemHtml = createItem(value, timerId);
