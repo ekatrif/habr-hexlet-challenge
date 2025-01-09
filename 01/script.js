@@ -2,6 +2,27 @@ const app = document.querySelector('#app');
 const timeInput = document.querySelector('#time-input');
 const addBtn = document.querySelector('#add-timer');
 const list = document.querySelector('#timers');
+const error = document.querySelector('.error-wrapper');
+
+const onValidate = (e) => {
+  const target = e.target;
+  const value = target.value;
+
+  // Check if value is positive number
+  if (isNaN(value) || value <= 0) {
+    error.textContent = 'Please enter a positive number';
+    timeInput.classList.add('error');
+    addBtn.disabled = true;
+    return;
+  }
+
+  error.textContent = '';
+  timeInput.classList.remove('error');
+  addBtn.disabled = false;
+}
+
+timeInput.addEventListener('keyup', (e) => onValidate(e));
+timeInput.addEventListener('change', (e) => onValidate(e));
 
 let timerId = 0;
 
@@ -23,15 +44,10 @@ const addTimer = () => {
   // Take value from input
   const value = timeInput.value;
 
-  // Check if value is positive number
-  if (isNaN(value) || value <= 0) {
-    alert('Please enter a positive number');
-    timeInput.value = '';
-    return;
-  }
-
   // Reset value in input
   timeInput.value = '';
+  // Disable button
+  addBtn.disabled = true;
 
   // Create list item with countdown and stop/delete buttons
   const listItemHtml = createItem(value, timerId);

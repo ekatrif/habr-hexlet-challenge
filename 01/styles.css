@@ -16,11 +16,12 @@ html, body {
     align-items: center;
 }
 
-#app input {
+#time-input {
   padding: 8px 10px;
+  min-width: 250px;
 }
 
-#app input:focus {
+#time-input:focus {
   outline: none;
   border-color: lightgreen;
 }
@@ -33,10 +34,15 @@ html, body {
   transition: all 0.5s linear;
 }
 
-.add-timer:hover {
+.add-timer:hover:enabled {
   cursor: pointer;
   background-color: lightgreen;
   border: 2px solid grey;
+}
+
+.add-timer:disabled {
+  cursor: not-allowed;
+  color: darkgrey;
 }
 
 .stop-timer {
@@ -68,14 +74,14 @@ html, body {
   border: 2px solid grey;
 }
 
-#app ul {
+#timers {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-#app ul li {
+#timers li {
   display: flex;
   align-items: baseline;
   gap: 10px;
@@ -83,4 +89,13 @@ html, body {
 
 .countdown {
   font-weight: 600;
+}
+
+.error {
+  border-color: lightcoral;
+  color: lightcoral;
+}
+
+.error-wrapper {
+  color: lightcoral;
 }
